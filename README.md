@@ -12,25 +12,26 @@ This is a simple spring-boot demo application
 
 1.Create project folder:
 ```
-mkdir <project-name>
-cd <project-name>
+$ mkdir <project-name>
+$ cd <project-name>
 ```
 
 2.Clone the project:
 ```
-https://github.com/itsgokhanyilmaz/spring-boot-demo-app.git
+$ git clone https://github.com/itsgokhanyilmaz/spring-boot-demo-app.git
 ```
 
 3.Create a docker container for PostgreSQL Database:
 ```
-docker create --name postgres-demo -e POSTGRES_PASSWORD=Welcome -p 5432:5432 postgres:11.5-alpine
+$ docker create --name postgres-demo -e POSTGRES_PASSWORD=Welcome -p 5432:5432 postgres:11.5-alpine
 ```
 4.Start your container:
 ```
-docker start postgres-demo
+$ docker start postgres-demo
 ```
-5.Connect to PostgreSQL console from docker:
+5.Connect to PostgreSQL console from docker and create a database:
 ```
+$ docker exec -it postgres-demo psql -U postgres
 postgres>> create database conference_app
 ```
 
