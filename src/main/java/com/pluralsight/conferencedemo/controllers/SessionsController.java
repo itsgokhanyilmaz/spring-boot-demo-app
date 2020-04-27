@@ -2,6 +2,7 @@ package com.pluralsight.conferencedemo.controllers;
 
 import com.pluralsight.conferencedemo.models.Session;
 import com.pluralsight.conferencedemo.repositories.SessionRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/sessions")
+@RequiredArgsConstructor
 public class SessionsController {
-    @Autowired
-    private SessionRepository sessionRepository;
+
+    private final SessionRepository sessionRepository;
 
     @GetMapping
     public List<Session> list(){
