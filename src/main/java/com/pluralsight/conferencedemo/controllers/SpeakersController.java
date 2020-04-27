@@ -2,6 +2,7 @@ package com.pluralsight.conferencedemo.controllers;
 
 import com.pluralsight.conferencedemo.models.Speaker;
 import com.pluralsight.conferencedemo.repositories.SpeakerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/speakers")
+@RequiredArgsConstructor
 public class SpeakersController {
-    @Autowired
-    private SpeakerRepository speakerRepository;
+
+    private final SpeakerRepository speakerRepository;
 
     @GetMapping
     public List<Speaker> list(){
